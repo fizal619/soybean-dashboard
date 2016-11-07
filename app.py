@@ -32,6 +32,9 @@ class TWEETS:
 	def size(self):
 	  return len(self.items)
 
+	def contents(self):
+		return self.items
+
 # init 
 
 tweets = TWEETS()
@@ -62,8 +65,12 @@ api = twitter.Api(	consumer_key 				= creds['consumer_key'],
 
 print('########################################')
 print('Loading the queue:\n')
-
+results = api.GetSearch(
+  raw_query="q=%23soybean&count=20")
 # print(results)
+
+
+
 print('########################################')
 
 																							#
@@ -76,11 +83,11 @@ print('########################################')
 # TEST ROUTE -
 # Used to test the data coming back from the 
 # twitter api in postman. 
-@app.route('/api/v1/test/search')
-def index():
-	results = api.GetSearch(
-    raw_query="q=%23soybean&count=20")
-	return results[0].AsJsonString()
+# @app.route('/api/v1/test/search')
+# def index():
+# 	results = api.GetSearch(
+#     raw_query="q=%23soybean&count=20")
+# 	return results[0].AsJsonString()
 
 																							#
 																							#
