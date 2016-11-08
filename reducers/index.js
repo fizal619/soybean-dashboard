@@ -1,11 +1,12 @@
 // reducers/index.js
 import { } from '../actions';
 
-const initialScreens = {
+const initialState = {
 	screen1: "about",
 	screen2: "contact"
 }
-export default (state = initialScreens, action) => {
+
+export default (state = initialState, action) => {
   switch (action.type) {
     
     default:
