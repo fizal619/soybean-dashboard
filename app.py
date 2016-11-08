@@ -24,7 +24,11 @@ class TWEETS:
 	  return self.items == []
 
 	def enqueue(self, item):
-	  self.items.insert(0,item)
+		if len(self.items) < self.limit:
+			self.items.insert(0,item)
+		else:
+			self.dequeue()
+			self.items.insert(0,item)
 
 	def dequeue(self):
 		return self.items.pop()
@@ -67,7 +71,17 @@ print('########################################')
 print('Loading the queue:\n')
 results = api.GetSearch(
   raw_query="q=%23soybean&count=20")
-# print(results)
+# print(results[])
+
+#loop through and store in the clean stack
+for result in results:
+	temp = {
+		'created_at': result.created_at,
+		'text': result.text,
+		'location': result.user.location,
+		'name': result.user.name
+	}
+	tweets.enqueue(temp)
 
 
 
@@ -83,11 +97,9 @@ print('########################################')
 # TEST ROUTE -
 # Used to test the data coming back from the 
 # twitter api in postman. 
-# @app.route('/api/v1/test/search')
-# def index():
-# 	results = api.GetSearch(
-#     raw_query="q=%23soybean&count=20")
-# 	return results[0].AsJsonString()
+@app.route('/api/v1/test/search')
+def index():
+	return jsonify(tweets.contents())
 
 																							#
 																							#

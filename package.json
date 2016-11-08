@@ -1,18 +1,19 @@
 {
-  "name": "react-redux-boilerplate",
+  "name": "soybean-dashboard",
   "version": "1.0.0",
   "description": "Boilerplate for creating a sample react-redux application",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --inline",
+    "start": "concurrently --prefix \"[{name}]\" -k \"webpack -d --watch --colors\" \"flask run\" -n \"WEBPACK,FLASK\"",
     "lint": "eslint .",
     "build": "webpack -d --progress --colors --config webpack.config.js",
     "watch": "webpack -d --progress --watch --config webpack.config.js"
   },
-  "author": "Jason Schapiro",
+  "author": "Fizal Sarif",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^3.1.0",
     "path": "^0.12.7",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
