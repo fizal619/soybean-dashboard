@@ -1,14 +1,16 @@
 // reducers/index.js
-import { } from '../actions';
+import {POSITION} from '../actions';
 
 const initialState = {
-	screen1: "about",
-	screen2: "contact"
+	position: [0,0]
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    
+    case POSITION:
+    	return Object.assign({}, state, {
+    		position: action.position
+    	})
     default:
       return state;
   }

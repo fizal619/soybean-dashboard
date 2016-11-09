@@ -1,23 +1,20 @@
 import React, { Component } from 'react'
 import {Link, Route, Router, IndexRoute, browserHistory} from 'react-router'
-import Default from './main/Default'
+import Map from './screens/Map'
 
 
 
-export default class App extends Component{
-	constructor(props) {
-		super(props);
-		
-	}
+const App=(props)=>{
 
+	console.log(props)
 	
-	render(){
+
 		return (
   		<Router history={browserHistory}>
-				<Route path="/" component={Default} />
+				<Route path="/" component={Map} position={props.position} />
 			</Router>
 		)
 	}
-}
 
+export default App
 
