@@ -1,5 +1,5 @@
 // reducers/index.js
-import {POSITION} from '../actions';
+import {POSITION, INCREMENT} from '../actions';
 
 const initialState = {
 	position: [0,0]

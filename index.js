@@ -4,18 +4,29 @@ import {Provider, connect} from 'react-redux'
 
 import { createStore } from 'redux';
 import map from './reducers';
-import { POSITION } from './actions';
+import { POSITION, incrementOne } from './actions';
 
 import App from './components/App';
 
-let store = createStore(map)
+let store = createStore(
+	map,
+	window.__REDUX_DEVTOOLS_EXTENSION__ &&
+	window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 const mapStateToProps=(state)=>{
   return { position: state.position }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    
+  }
+}
+
 const AppWrap = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(App);
 
 const render = () => ReactDOM.render(

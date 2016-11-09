@@ -5,10 +5,10 @@
 
 export const POSITION = 'map/POSITION'
 
-
 export const setPosition =(position, dispatch)=>{
 	return {
 		type: POSITION,
 		position
 	}
 }
+
