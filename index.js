@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider, connect} from 'react-redux'
 
+require('./css/style.css')
+
 import { createStore } from 'redux';
 import map from './reducers';
 import { POSITION, incrementOne } from './actions';
