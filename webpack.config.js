@@ -10,7 +10,7 @@ module.exports = {
   entry: './index.js',
 
   output: {
-    filename: './static/bundle.js'
+    filename: './static/js/bundle.js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.css']
@@ -41,7 +41,7 @@ module.exports = {
       appMountId: 'root',
       filename: './static/index.html'
     }),
-    new ExtractTextPlugin('./static/[name].css', {
+    new ExtractTextPlugin('./static/css/[name].css', {
       allChunks: true
     })
   ]

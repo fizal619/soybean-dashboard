@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider, connect} from 'react-redux'
 
 require('./css/style.css')
+require('./css/leaflet.css')
 
 import { createStore } from 'redux';
 import map from './reducers';

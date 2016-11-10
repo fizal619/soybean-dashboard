@@ -2,7 +2,7 @@
 import {POSITION, INCREMENT} from '../actions';
 
 const initialState = {
-	position: [0,0]
+	position: [10,-20]
 }
 
 export default (state = initialState, action) => {
